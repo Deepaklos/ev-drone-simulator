@@ -1,0 +1,58 @@
+# Default Quadcopter Configuration
+
+drone:
+  name: "Stock Quadcopter"
+  type: "quadcopter"
+  mass_empty: 1.0  # kg (excluding battery)
+  inertia: [0.018, 0.018, 0.032]  # kg*m² [Ixx, Iyy, Izz]
+  
+  rotors:
+    - id: 0
+      position: [0.215, 0.215, 0]  # meters from center (FR)
+      direction: 1  # CCW
+      kv: 920
+      k_thrust: 9.65e-5
+      k_drag: 1.2e-6
+      i_rotor: 1e-5
+      r_internal: 0.01
+    
+    - id: 1
+      position: [-0.215, 0.215, 0]  # FL
+      direction: -1  # CW
+      kv: 920
+      k_thrust: 9.65e-5
+      k_drag: 1.2e-6
+      i_rotor: 1e-5
+      r_internal: 0.01
+    
+    - id: 2
+      position: [-0.215, -0.215, 0]  # RL
+      direction: 1
+      kv: 920
+      k_thrust: 9.65e-5
+      k_drag: 1.2e-6
+      i_rotor: 1e-5
+      r_internal: 0.01
+    
+    - id: 3
+      position: [0.215, -0.215, 0]  # RR
+      direction: -1
+      kv: 920
+      k_thrust: 9.65e-5
+      k_drag: 1.2e-6
+      i_rotor: 1e-5
+      r_internal: 0.01
+
+battery:
+  name: "3S LiPo 5000mAh"
+  capacity_mah: 5000
+  nominal_voltage: 11.1  # V (3S = 3 * 3.7V)
+  internal_resistance: 0.012  # Ohms
+  c_rating: 50  # 50C
+  num_cells: 3
+
+control:
+  position_pid: [1.0, 0.1, 0.5]
+  velocity_pid: [1.5, 0.2, 0.3]
+  attitude_pid: [4.5, 0.05, 0.2]
+  rate_pid: [0.15, 0.05, 0.004]

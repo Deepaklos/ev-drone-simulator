@@ -1,0 +1,73 @@
+# Global Configuration
+
+physics:
+  # Integration timestep (seconds)
+  dt: 0.001  # 1 ms physics step
+  
+  # Gravity
+  g: 9.81  # m/s²
+  
+  # Air density at sea level
+  rho_sea_level: 1.225  # kg/m³
+  
+  # Default temperature
+  T_ref: 288.15  # K (15°C)
+  
+  # Aerodynamic drag coefficient
+  C_d: 0.1
+  
+  # Reference area for drag
+  A_ref: 0.1  # m²
+
+simulation:
+  # Render/visualization update rate (Hz)
+  render_fps: 60
+  
+  # How many physics steps per render frame
+  physics_steps_per_frame: 1
+  
+  # Maximum simulation time (seconds, 0 = unlimited)
+  max_time: 0
+  
+  # Initial environment
+  wind_speed: 0.0  # m/s
+  wind_direction: 0.0  # degrees
+  ambient_temperature: 288.15  # K
+
+control:
+  # Cascaded PID gains
+  # Format: [Kp, Ki, Kd]
+  
+  position_controller:
+    kp: 1.0
+    ki: 0.1
+    kd: 0.5
+  
+  velocity_controller:
+    kp: 1.5
+    ki: 0.2
+    kd: 0.3
+  
+  attitude_controller:
+    kp: 4.5
+    ki: 0.05
+    kd: 0.2
+  
+  rate_controller:
+    kp: 0.15
+    ki: 0.05
+    kd: 0.004
+
+gui:
+  # Default window size
+  window_width: 1400
+  window_height: 900
+  
+  # 3D viewport background color (RGB 0-1)
+  bg_color: [0.1, 0.1, 0.1]
+  
+  # Telemetry update rate (Hz)
+  telemetry_update_rate: 20
+  
+  # Plot history length (seconds)
+  plot_history: 30
